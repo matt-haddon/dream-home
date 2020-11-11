@@ -1,0 +1,27 @@
+{
+  "name": "dream-home",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matthaddon90/dream-home.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matthaddon90/dream-home/issues"
+  },
+  "homepage": "https://github.com/Matthaddon90/dream-home#readme",
+  "dependencies": {
+    "expo-cli": "^3.28.5"
+  },
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^2.0.0",
+    "eslint": "^7.13.0"
+  }
+}
