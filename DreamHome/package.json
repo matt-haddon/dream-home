@@ -11,12 +11,15 @@
   "dependencies": {
     "@ptomasroos/react-native-multi-slider": "^2.2.2",
     "@react-native-community/slider": "^3.0.3",
+    "@react-native-picker/picker": "^1.9.2",
     "expo": "~39.0.2",
     "expo-status-bar": "~1.0.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
-    "react-native-web": "~0.13.12"
+    "react-native-simple-radio-button": "^2.7.4",
+    "react-native-web": "~0.13.12",
+    "styled-components-native": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
