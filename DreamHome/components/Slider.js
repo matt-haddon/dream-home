@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 const Slider = (props) => {
-  const [multiSliderValue, setMultiSliderValue] = useState([
-    props.minimum,
-    props.maximum,
-  ]);
-
-  const multiSliderValuesChange = (values) => setMultiSliderValue(values);
+  const multiSliderValuesChange = (values) => props.setMultiSliderValue(values);
 
   return (
     <View style={styles.ViewContainer}>
       <View style={styles.LabelWrapper}>
-        <Text style={styles.LabelText}>{multiSliderValue[0]} </Text>
-        <Text style={styles.LabelText}>{multiSliderValue[1]}</Text>
+        <Text style={styles.LabelText}>{props.multiSliderValue[0]} </Text>
+        <Text style={styles.LabelText}>{props.multiSliderValue[1]}</Text>
       </View>
 
       <MultiSlider
@@ -22,7 +17,7 @@ const Slider = (props) => {
         pressedMarkerStyle={styles.pressedMarkerStyle}
         selectedStyle={styles.selectedStyle}
         trackStyle={styles.trackStyle}
-        values={[multiSliderValue[0], multiSliderValue[1]]}
+        values={[props.multiSliderValue[0], props.multiSliderValue[1]]}
         sliderLength={250}
         onValuesChange={multiSliderValuesChange}
         min={props.minimum}

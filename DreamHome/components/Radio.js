@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import RadioForm, {
   RadioButton,
@@ -7,8 +7,7 @@ import RadioForm, {
 } from 'react-native-simple-radio-button';
 
 const Radio = (props) => {
-  const [radioIndex, setRadioIndex] = useState(0);
-  const onPress = (i) => setRadioIndex(i);
+  const onPress = (i) => props.setRadioIndex(i);
   return (
     <RadioForm formVertical={true} animation={true}>
       {/* To create radio buttons, loop through your array of options */}
@@ -26,11 +25,11 @@ const Radio = (props) => {
           <RadioButtonInput
             obj={obj}
             index={i}
-            isSelected={radioIndex === i}
+            isSelected={props.radioIndex === i}
             onPress={onPress}
             borderWidth={1}
             buttonInnerColor={'#2196f3'}
-            buttonOuterColor={radioIndex === i ? '#2196f3' : '#000'}
+            buttonOuterColor={props.radioIndex === i ? '#2196f3' : '#000'}
             buttonSize={30}
             buttonOuterSize={40}
             buttonStyle={{}}

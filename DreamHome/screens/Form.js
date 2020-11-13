@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
@@ -13,13 +13,15 @@ import ApiService from '../ApiService';
 
 const Form = () => {
   //form states
+  const [minBudget, setMinBudget] = useState(0);
+  const [maxBudget, setMaxBudget] = useState(5000000);
+  const [homeTypeIndex, setHomeTypeIndex] = useState('0');
+  const [bedrooms, setBedrooms] = useState([0, 10]);
   const [gardenToggle, setGardenToggle] = useState(false);
   const [garageToggle, setGarageToggle] = useState(false);
   const [balconyToggle, setBalconyToggle] = useState(false);
   const [newbuildToggle, setNewbuildToggle] = useState(false);
   const [helptobuyToggle, setHelptobuyToggle] = useState(false);
-  const [minBudget, setMinBudget] = useState('0');
-  const [maxBudget, setMaxBudget] = useState('5000000');
 
   const homeArray = [
     { label: 'House', value: 0 },
@@ -30,6 +32,20 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const filterObj = {
+      minBudget: minBudget,
+      maxBudget: maxBudget,
+      homeType: homeArray[homeTypeIndex].label,
+      minBeds: bedrooms[0],
+      maxBeds: bedrooms[1],
+      gardenToggle: gardenToggle,
+      garageToggle: garageToggle,
+      balconyToggle: balconyToggle,
+      newbuildToggle: newbuildToggle,
+      helptobuyToggle: helptobuyToggle,
+    };
+
+    console.log(filterObj);
   };
 
   return (
@@ -65,10 +81,19 @@ const Form = () => {
       </View>
 
       <Text>Type</Text>
-      <Radio radio_props={homeArray} />
+      <Radio
+        radio_props={homeArray}
+        radioIndex={homeTypeIndex}
+        setRadioIndex={setHomeTypeIndex}
+      />
 
       <Text>Number of Bedrooms</Text>
-      <Slider maximum={10} minimum={0} />
+      <Slider
+        multiSliderValue={bedrooms}
+        setMultiSliderValue={setBedrooms}
+        maximum={10}
+        minimum={0}
+      />
       <Text>Features</Text>
       <View style={{ flexDirection: 'row' }}>
         <View>
@@ -122,7 +147,7 @@ const Form = () => {
           value={helptobuyToggle}
         />
       </View>
-      {<Button title="FIND" />}
+      {<Button title="FIND" onPress={handleSubmit} />}
     </View>
   );
 };
