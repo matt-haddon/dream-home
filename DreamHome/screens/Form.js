@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Button,
-  Switch,
-  TextInput,
-} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
 import Slider from '../components/Slider';
 import Radio from '../components/Radio';
 import Switcher from '../components/Switcher';
-import ApiService from '../ApiService';
+import ZooplaFetch from '../components/ZooplaFetch';
 
 const Form = () => {
   //form states
@@ -25,28 +18,56 @@ const Form = () => {
   const [helptobuy, setHelptobuy] = useState(false);
 
   const homeArray = [
-    { label: 'House', value: 0 },
-    { label: 'Apartment', value: 1 },
+    { label: 'House', value: 0, search: 'houses' },
+    { label: 'Apartment', value: 1, search: 'flats' },
   ];
+  //api request states
 
-  // api requests
+  const [england, setEngland] = useState([]);
+  const [wales, setWales] = useState([]);
+  const [scotland, setScotland] = useState([]);
+  const [northernIreland, setNorthernIreland] = useState([]);
+  const [unitedKingdom, setUnitedKingdom] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const filterObj = {
       minBudget: minBudget,
       maxBudget: maxBudget,
-      homeType: homeArray[homeTypeIndex].label,
+      propertyType: homeArray[homeTypeIndex].search,
       minBeds: bedrooms[0],
       maxBeds: bedrooms[1],
-      garden: garden,
-      garage: garage,
-      balcony: balcony,
-      newbuild: newbuild,
-      helptobuy: helptobuy,
+      garden: garden ? 'garden' : '',
+      garage: garage ? 'garage' : '',
+      balcony: balcony ? 'balcony' : '',
+      newHomes: newbuild,
+      helptobuy: helptobuy ? 'helptobuy' : '',
     };
 
     console.log(filterObj);
+
+    useEffect(() => {
+      ZooplaFetch(england, setEngland);
+      ZooplaFetch(wales, setWales);
+      ZooplaFetch(scotland, setScotland);
+      ZooplaFetch(northernIreland, setNorthernIreland);
+
+      unitedKingdom.concat(
+        england.listing,
+        wales.listing,
+        scotland.listing,
+        northernIreland.listing,
+      );
+    }, []);
+
+    // // Promise.all([
+    //   england.listing,
+    //   scotland.listing,
+    //   wales.listing,
+    //   northernIreland.listing,
+    // ])
+    //   .then((values) => setUnitedKingdom(values))
+    //   .then(console.log(unitedKingdom));
   };
 
   return (
