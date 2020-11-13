@@ -9,8 +9,10 @@ import {
 } from 'react-native';
 import Slider from '../components/Slider';
 import Radio from '../components/Radio';
+import ApiService from '../ApiService';
 
 const Form = () => {
+  //form states
   const [gardenToggle, setGardenToggle] = useState(false);
   const [garageToggle, setGarageToggle] = useState(false);
   const [balconyToggle, setBalconyToggle] = useState(false);
@@ -23,6 +25,13 @@ const Form = () => {
     { label: 'House', value: 0 },
     { label: 'Apartment', value: 1 },
   ];
+
+  // api requests
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <View style={styles.container}>
       <Text>My DreamHome</Text>
@@ -113,7 +122,7 @@ const Form = () => {
           value={helptobuyToggle}
         />
       </View>
-      <Button title="FIND" onPress={} />
+      {<Button title="FIND" />}
     </View>
   );
 };
