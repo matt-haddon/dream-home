@@ -4,8 +4,9 @@ import Slider from '../components/Slider';
 import Radio from '../components/Radio';
 import Switcher from '../components/Switcher';
 import ZooplaFetch from '../components/ZooplaFetch';
+// import MapScreen from './MapScreen';
 
-const Form = () => {
+const Form = ({ navigation }) => {
   //form states
   const [minBudget, setMinBudget] = useState('0');
   const [maxBudget, setMaxBudget] = useState('5000000');
@@ -40,29 +41,32 @@ const Form = () => {
       garden: garden ? 'garden' : '',
       garage: garage ? 'garage' : '',
       balcony: balcony ? 'balcony' : '',
-      newHomes: newbuild,
+      newHomes: newbuild ? 'true' : '',
       helptobuy: helptobuy ? 'helptobuy' : '',
     };
+    console.log(newbuild);
 
-    console.log(filterObj);
-    let engFetch = ZooplaFetch(filterObj, england, setEngland);
-    let scotFetch = ZooplaFetch(filterObj, scotland, setScotland);
-    let walesFetch = ZooplaFetch(filterObj, wales, setWales);
-    let niFetch = ZooplaFetch(filterObj, northernIreland, setNorthernIreland);
-    let value = [];
+    // console.log(filterObj);
+    navigation.navigate('MapScreen');
+    ZooplaFetch(filterObj, england, setEngland).then(console.log(england));
 
-    Promise.all([engFetch, scotFetch, walesFetch, niFetch])
-      .then(
-        value.concat(
-          england.listing,
-          wales.listing,
-          scotland.listing,
-          northernIreland.listing,
-        ),
-      )
-      .then(setUnitedKingdom(value))
-      .then(console.log(unitedKingdom))
-      .then(console.log('hiya'));
+    // let scotFetch = ZooplaFetch(filterObj, scotland, setScotland);
+    // let walesFetch = ZooplaFetch(filterObj, wales, setWales);
+    // let niFetch = ZooplaFetch(filterObj, northernIreland, setNorthernIreland);
+    // let value = [];
+
+    // Promise.all([engFetch, scotFetch, walesFetch, niFetch])
+    //   .then(
+    //     value.concat(
+    //       england.listing,
+    //       wales.listing,
+    //       scotland.listing,
+    //       northernIreland.listing,
+    //     ),
+    //   )
+    //   .then(setUnitedKingdom(value))
+    //   .then(console.log(unitedKingdom))
+    //   .then(console.log('hiya'));
   };
 
   return (

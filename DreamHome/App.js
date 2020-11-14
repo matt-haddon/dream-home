@@ -6,25 +6,11 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import MapScreen from './screens/MapScreen';
 import MapListScreen from './screens/MapListScreen';
-import { setNavigator } from './navigationRef';
+import { setNavigator } from './routes/navigationRef';
 import MapView from 'react-native-maps';
+import Navigator from './routes/homeStack';
+import Welcome from './screens/Welcome';
 
-const switchNavigator = createSwitchNavigator({
-  mainFlow: createBottomTabNavigator({
-    MapView: MapScreen,
-    MapList: MapListScreen,
-    Form: Form,
-  }),
-});
-
-const App = createAppContainer(switchNavigator);
-
-export default () => {
-  return (
-    <App
-      ref={(navigator) => {
-        setNavigator(navigator);
-      }}
-    />
-  );
-};
+export default function App() {
+  return <Navigator />;
+}
