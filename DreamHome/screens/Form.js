@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, TextInput } from 'react-native';
 import Slider from '../components/Slider';
 import Radio from '../components/Radio';
@@ -45,29 +45,24 @@ const Form = () => {
     };
 
     console.log(filterObj);
+    let engFetch = ZooplaFetch(filterObj, england, setEngland);
+    let scotFetch = ZooplaFetch(filterObj, scotland, setScotland);
+    let walesFetch = ZooplaFetch(filterObj, wales, setWales);
+    let niFetch = ZooplaFetch(filterObj, northernIreland, setNorthernIreland);
+    let value = [];
 
-    useEffect(() => {
-      ZooplaFetch(england, setEngland);
-      ZooplaFetch(wales, setWales);
-      ZooplaFetch(scotland, setScotland);
-      ZooplaFetch(northernIreland, setNorthernIreland);
-
-      unitedKingdom.concat(
-        england.listing,
-        wales.listing,
-        scotland.listing,
-        northernIreland.listing,
-      );
-    }, []);
-
-    // // Promise.all([
-    //   england.listing,
-    //   scotland.listing,
-    //   wales.listing,
-    //   northernIreland.listing,
-    // ])
-    //   .then((values) => setUnitedKingdom(values))
-    //   .then(console.log(unitedKingdom));
+    Promise.all([engFetch, scotFetch, walesFetch, niFetch])
+      .then(
+        value.concat(
+          england.listing,
+          wales.listing,
+          scotland.listing,
+          northernIreland.listing,
+        ),
+      )
+      .then(setUnitedKingdom(value))
+      .then(console.log(unitedKingdom))
+      .then(console.log('hiya'));
   };
 
   return (
