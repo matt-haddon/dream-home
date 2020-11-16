@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, Button, Image, Text } from 'react-native';
+import { StyleSheet, SafeAreaView, Text } from 'react-native';
+import { Button } from 'native-base';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import BackgroundCarousel from '../components/BackgroundCarousel';
 
@@ -22,11 +23,11 @@ const Welcome = ({ navigation }) => {
   };
   return (
     <SafeAreaView style={styles.page}>
-      <Button
-        title="Find Your DreamHome"
-        onPress={pressHandler}
-        style={styles.button}
-      />
+      <Button style={styles.button} light onPress={pressHandler}>
+        <Text style={{ fontFamily: 'Quicksand_Bold', fontSize: 20 }}>
+          Find Your DreamHome
+        </Text>
+      </Button>
 
       <BackgroundCarousel images={images} />
     </SafeAreaView>
@@ -39,14 +40,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   button: {
-    backgroundColor: 'orange',
+    backgroundColor: '#F9C700',
     position: 'absolute',
+    width: '60%',
+    marginLeft: '20%',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 25,
     zIndex: 1,
-    marginTop: 500,
-    paddingTop: 200,
+    paddingHorizontal: 5,
   },
 });
 

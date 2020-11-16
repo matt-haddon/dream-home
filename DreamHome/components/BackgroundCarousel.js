@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import {
   StyleSheet,
   View,
@@ -13,8 +13,26 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
 const BackgroundCarousel = ({ images }) => {
-  let scrollRef = React.createRef();
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const scrollRef = useRef();
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    scrollRef.current = nextSlide;
+  }, []);
+  useEffect(() => {
+    const play = () => {
+      scrollRef.current();
+    };
+    const interval = setInterval(play, 3000);
+  }, []);
+
+  const nextSlide = () => {
+    if (activeIndex === images.length - 1) {
+      return setActiveIndex(0);
+    } else {
+      setActiveIndex(activeIndex + 1);
+    }
+  };
 
   // const indexSelection = (event) => {
   //   const viewSize = event.nativeEvent.layoutMeasurement.width;
@@ -27,8 +45,8 @@ const BackgroundCarousel = ({ images }) => {
   // useEffect(() => {
   //   setInterval(
   //     () => {
-  //       setSelectedIndex((prev) => ({
-  //         selectedIndex:
+  //       setActiveIndex((prev) => ({
+  //         activeIndex:
   //           prev.selectedIndex === images.length - 1
   //             ? 0
   //             : prev.selectedIndex + 1,

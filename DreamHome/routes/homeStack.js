@@ -7,6 +7,7 @@ import Welcome from '../screens/Welcome';
 const screens = {
   Welcome: {
     screen: Welcome,
+    navigationOptions: { header: null },
   },
   Form: {
     screen: Form,
