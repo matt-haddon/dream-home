@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 import Slider from '../components/Slider';
 import Radio from '../components/Radio';
@@ -32,9 +32,16 @@ const Form = ({ navigation }) => {
   const [wales, setWales] = useState([]);
   const [scotland, setScotland] = useState([]);
   const [northernIreland, setNorthernIreland] = useState([]);
-  const [unitedKingdom, setUnitedKingdom] = useState([]);
+  const [unitedKingdom, setUnitedKingdom] = useState('');
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    if (unitedKingdom.length) {
+      // console.log(unitedKingdom[0]);
+      navigation.navigate('MapScreen', { data: unitedKingdom });
+    }
+  }, [unitedKingdom, navigation]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const filterObj = {
       minBudget: minBudget,
@@ -48,11 +55,11 @@ const Form = ({ navigation }) => {
       newHomes: newbuild ? 'true' : '',
       helptobuy: helptobuy ? 'helptobuy' : '',
     };
-    console.log(filterObj);
+    // console.log(filterObj);
 
     // console.log(filterObj);
-    navigation.navigate('MapScreen');
-    ZooplaFetch(filterObj, england, setEngland).then(console.log(england));
+    const res = await ZooplaFetch(filterObj);
+    setUnitedKingdom(res);
 
     // let scotFetch = ZooplaFetch(filterObj, scotland, setScotland);
     // let walesFetch = ZooplaFetch(filterObj, wales, setWales);
@@ -95,8 +102,11 @@ const Form = ({ navigation }) => {
           Budget
         </Text>
         <Item floatingLabel>
-          <Label>Minimum Budget</Label>
+          <Label style={{ fontFamily: 'Quicksand_Regular' }}>
+            Minimum Budget
+          </Label>
           <Input
+            style={{ fontFamily: 'Quicksand_Regular' }}
             keyboardType="number-pad"
             onChangeText={(value) => {
               Number(value);
@@ -107,8 +117,11 @@ const Form = ({ navigation }) => {
           />
         </Item>
         <Item style={{ marginTop: 20 }} floatingLabel>
-          <Label>Maximum Budget</Label>
+          <Label style={{ fontFamily: 'Quicksand_Regular' }}>
+            Maximum Budget
+          </Label>
           <Input
+            style={{ fontFamily: 'Quicksand_Regular' }}
             keyboardType="number-pad"
             onChangeText={(value) => {
               Number(value);

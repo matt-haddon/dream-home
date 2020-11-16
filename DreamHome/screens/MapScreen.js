@@ -4,9 +4,10 @@ import { Text, StyleSheet } from 'react-native';
 import Map from '../components/Map';
 
 const MapScreen = ({ navigation }) => {
+  console.log(navigation.state.params);
   return (
     <SafeAreaView forceInset={{ top: 'always' }}>
-      <Map />
+      <Map data={navigation.state.params} />
     </SafeAreaView>
   );
 };

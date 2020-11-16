@@ -8,8 +8,8 @@ const Slider = (props) => {
   return (
     <View style={styles.ViewContainer}>
       <View style={styles.LabelWrapper}>
-        <Text style={styles.LabelText}>{props.multiSliderValue[0]} </Text>
-        <Text style={styles.LabelText}>{props.multiSliderValue[1]}</Text>
+        <Text style={styles.labelText}>{props.multiSliderValue[0]} </Text>
+        <Text style={styles.labelText}>{props.multiSliderValue[1]}</Text>
       </View>
 
       <MultiSlider
@@ -44,8 +44,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingVertical: 5,
+    fontFamily: 'Quicksand_Bold',
+    fontSize: 20,
   },
-  Labeltext: {
+  labeltext: {
     fontSize: 20,
     fontFamily: 'Quicksand_Bold',
   },
