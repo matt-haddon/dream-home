@@ -9,13 +9,19 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@expo-google-fonts/dev": "^0.1.0",
+    "@expo-google-fonts/quicksand": "^0.1.0",
     "@ptomasroos/react-native-multi-slider": "^2.2.2",
+    "@react-native-community/masked-view": "0.1.10",
     "@react-native-community/slider": "^3.0.3",
     "@react-native-picker/picker": "^1.9.2",
     "@react-navigation/native": "^5.8.9",
     "dotenv": "^8.2.0",
     "expo": "~39.0.2",
+    "expo-font": "~8.3.0",
     "expo-status-bar": "~1.0.2",
+    "ionicons": "^5.2.3",
+    "native-base": "^2.13.14",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.4.tar.gz",
@@ -30,8 +36,7 @@
     "react-navigation": "^4.4.3",
     "react-navigation-stack": "^2.10.1",
     "react-navigation-tabs": "^2.10.1",
-    "styled-components-native": "^1.0.2",
-    "@react-native-community/masked-view": "0.1.10"
+    "styled-components-native": "^1.0.2"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"

@@ -10,9 +10,11 @@ const screens = {
   },
   Form: {
     screen: Form,
+    navigationOptions: { header: null },
   },
   MapScreen: {
     screen: MapScreen,
+    navigationOptions: { header: null },
   },
 };
 

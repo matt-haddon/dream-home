@@ -14,26 +14,30 @@ const Radio = (props) => {
       {props.radio_props.map((obj, i) => (
         <RadioButton key={i}>
           {/*  You can set RadioButtonLabel before RadioButtonInput */}
-          <RadioButtonLabel
-            obj={obj}
-            index={i}
-            labelHorizontal={true}
-            onPress={onPress}
-            labelStyle={{ fontSize: 12, color: '#000' }}
-            labelWrapStyle={{}}
-          />
           <RadioButtonInput
             obj={obj}
             index={i}
             isSelected={props.radioIndex === i}
             onPress={onPress}
             borderWidth={1}
-            buttonInnerColor={'#2196f3'}
-            buttonOuterColor={props.radioIndex === i ? '#2196f3' : '#000'}
-            buttonSize={30}
-            buttonOuterSize={40}
+            buttonInnerColor={'#6A9AB6'}
+            buttonOuterColor={props.radioIndex === i ? '#000' : '#000'}
+            buttonSize={20}
+            buttonOuterSize={30}
             buttonStyle={{}}
             buttonWrapStyle={{ marginLeft: 10 }}
+          />
+          <RadioButtonLabel
+            obj={obj}
+            index={i}
+            labelHorizontal={true}
+            onPress={onPress}
+            labelStyle={{
+              fontSize: 15,
+              color: '#000',
+              fontFamily: 'Quicksand_Regular',
+            }}
+            labelWrapStyle={{}}
           />
         </RadioButton>
       ))}

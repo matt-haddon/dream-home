@@ -43,25 +43,26 @@ const styles = StyleSheet.create({
   LabelWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingVertical: 20,
+    paddingVertical: 5,
   },
   Labeltext: {
     fontSize: 20,
+    fontFamily: 'Quicksand_Bold',
   },
   markerStyle: {
     height: 30,
     width: 30,
     borderRadius: 50,
-    backgroundColor: '#1792E8',
+    backgroundColor: '#6A9AB6',
   },
   pressedMarkerStyle: {
     height: 30,
     width: 30,
     borderRadius: 20,
-    backgroundColor: '#148ADC',
+    backgroundColor: '#F9C700',
   },
   selectedStyle: {
-    backgroundColor: '#1792E8',
+    backgroundColor: '#6A9AB6',
   },
   trackStyle: {
     backgroundColor: '#CECECE',
