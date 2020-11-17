@@ -23,12 +23,10 @@ const ZooplaFetch = async (filterObj, country) => {
   let URL =
     BASE_URL + budget + propertyType + bedrooms + keywords + newHome + apiKey;
 
-  console.log(URL);
-
   try {
     const res = await fetch(URL);
     const json = await res.json();
-    return json.listing.slice(0, 4);
+    return json.listing;
   } catch (error) {
     console.log(error);
   }

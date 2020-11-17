@@ -26,16 +26,66 @@ const Form = ({ navigation }) => {
     { label: 'House', value: 0, search: 'houses' },
     { label: 'Apartment', value: 1, search: 'flats' },
   ];
-  //api request states
+  //api request state
 
   const [unitedKingdom, setUnitedKingdom] = useState('');
 
+  // navigation useEffect
+
   useEffect(() => {
     if (unitedKingdom.length) {
-      console.log(unitedKingdom.length);
       navigation.navigate('MapScreen', { data: unitedKingdom });
     }
   }, [unitedKingdom, navigation]);
+
+  //build objects to render on map
+
+  const calculate = (data) => {
+    const result = {};
+    data.forEach((listing) => {
+      if (listing.price > 0) {
+        if (result[listing.post_town]) {
+          // modify data - take existing data,
+          result[listing.post_town].averagePrice.push(listing.price);
+          result[listing.post_town].lng.push(listing.longitude);
+          result[listing.post_town].lat.push(listing.latitude);
+          result[listing.post_town].avBedrooms.push(listing.num_bedrooms);
+          result[listing.post_town].numOfProperties++;
+        } else {
+          // create
+          result[listing.post_town] = {
+            post_town: listing.post_town,
+            averagePrice: [+listing.price],
+            lng: [+listing.longitude],
+            lat: [+listing.latitude],
+            avBedrooms: [+listing.num_bedrooms],
+            numOfProperties: 1,
+          };
+        }
+      }
+    });
+
+    const townValues = Object.values(result);
+
+    const finalData = townValues.map((town) => {
+      return {
+        post_town: town.post_town,
+        averagePrice:
+          +town.averagePrice.reduce((acc, el) => (acc += +el)) /
+          town.averagePrice.length,
+        lng: +town.lng.reduce((acc, el) => (acc += +el)) / town.lng.length,
+        lat: +town.lat.reduce((acc, el) => (acc += +el)) / town.lat.length,
+        avBedrooms:
+          +town.avBedrooms.reduce((acc, el) => (acc += +el)) /
+          town.avBedrooms.length,
+        numOfProperties: town.numOfProperties,
+      };
+    });
+    console.log('FINALDATA', finalData);
+    return finalData;
+  };
+
+  //handleSubmit onpress
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -51,14 +101,12 @@ const Form = ({ navigation }) => {
       newHomes: newbuild ? 'true' : '',
       helptobuy: helptobuy ? 'helptobuy' : '',
     };
-    // console.log(filterObj);
 
     const engRes = await ZooplaFetch(filterObj, 'england');
     const scotRes = await ZooplaFetch(filterObj, 'scotland');
     const walesRes = await ZooplaFetch(filterObj, 'wales');
     const niRes = await ZooplaFetch(filterObj, 'northern ireland');
     const res = niRes.concat(engRes, walesRes, scotRes);
-    setUnitedKingdom(res);
     const data = [];
     for (let i = 0; i < res.length; i++) {
       data.push({
@@ -72,7 +120,8 @@ const Form = ({ navigation }) => {
         num_bedrooms: res[i].num_bedrooms,
       });
     }
-    console.log('FILTERED', data);
+    const result = calculate(data);
+    setUnitedKingdom(result);
   };
 
   return (

@@ -7,15 +7,15 @@ import Welcome from '../screens/Welcome';
 const screens = {
   Welcome: {
     screen: Welcome,
-    navigationOptions: { header: null },
+    navigationOptions: { headerShown: false },
   },
   Form: {
     screen: Form,
-    navigationOptions: { header: null },
+    navigationOptions: { headerShown: false },
   },
   MapScreen: {
     screen: MapScreen,
-    navigationOptions: { header: null },
+    navigationOptions: { headerShown: false },
   },
 };
 
