@@ -12,8 +12,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Form = ({ navigation }) => {
   //form states
-  const [minBudget, setMinBudget] = useState('');
-  const [maxBudget, setMaxBudget] = useState('');
+  const [minBudget, setMinBudget] = useState();
+  const [maxBudget, setMaxBudget] = useState();
   const [homeTypeIndex, setHomeTypeIndex] = useState('0');
   const [bedrooms, setBedrooms] = useState([0, 10]);
   const [garden, setGarden] = useState(false);
@@ -28,15 +28,11 @@ const Form = ({ navigation }) => {
   ];
   //api request states
 
-  const [england, setEngland] = useState([]);
-  const [wales, setWales] = useState([]);
-  const [scotland, setScotland] = useState([]);
-  const [northernIreland, setNorthernIreland] = useState([]);
   const [unitedKingdom, setUnitedKingdom] = useState('');
 
   useEffect(() => {
     if (unitedKingdom.length) {
-      // console.log(unitedKingdom[0]);
+      console.log(unitedKingdom.length);
       navigation.navigate('MapScreen', { data: unitedKingdom });
     }
   }, [unitedKingdom, navigation]);
@@ -57,27 +53,26 @@ const Form = ({ navigation }) => {
     };
     // console.log(filterObj);
 
-    // console.log(filterObj);
-    const res = await ZooplaFetch(filterObj);
+    const engRes = await ZooplaFetch(filterObj, 'england');
+    const scotRes = await ZooplaFetch(filterObj, 'scotland');
+    const walesRes = await ZooplaFetch(filterObj, 'wales');
+    const niRes = await ZooplaFetch(filterObj, 'northern ireland');
+    const res = niRes.concat(engRes, walesRes, scotRes);
     setUnitedKingdom(res);
-
-    // let scotFetch = ZooplaFetch(filterObj, scotland, setScotland);
-    // let walesFetch = ZooplaFetch(filterObj, wales, setWales);
-    // let niFetch = ZooplaFetch(filterObj, northernIreland, setNorthernIreland);
-    // let value = [];
-
-    // Promise.all([engFetch, scotFetch, walesFetch, niFetch])
-    //   .then(
-    //     value.concat(
-    //       england.listing,
-    //       wales.listing,
-    //       scotland.listing,
-    //       northernIreland.listing,
-    //     ),
-    //   )
-    //   .then(setUnitedKingdom(value))
-    //   .then(console.log(unitedKingdom))
-    //   .then(console.log('hiya'));
+    const data = [];
+    for (let i = 0; i < res.length; i++) {
+      data.push({
+        address: res[i].displayable_address,
+        latitude: res[i].latitude,
+        longitude: res[i].longitude,
+        property_type: res[i].property_type,
+        price: res[i].price,
+        post_town: res[i].post_town,
+        county: res[i].county,
+        num_bedrooms: res[i].num_bedrooms,
+      });
+    }
+    console.log('FILTERED', data);
   };
 
   return (

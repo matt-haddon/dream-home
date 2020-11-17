@@ -1,8 +1,7 @@
 import { ZOOPLA_KEY } from '@env';
 
-const ZooplaFetch = async (filterObj) => {
-  let BASE_URL =
-    'http://api.zoopla.co.uk/api/v1/property_listings.json?area=england&listing_status=sale';
+const ZooplaFetch = async (filterObj, country) => {
+  let BASE_URL = `http://api.zoopla.co.uk/api/v1/property_listings.json?area=${country}&listing_status=sale`;
   let apiKey = `&api_key=${ZOOPLA_KEY}`;
   let budget = `&minimum_price=${filterObj.minBudget}&maximum_price=${filterObj.maxBudget}`;
   let propertyType = `&property_type=${filterObj.propertyType}`;
@@ -29,7 +28,7 @@ const ZooplaFetch = async (filterObj) => {
   try {
     const res = await fetch(URL);
     const json = await res.json();
-    return json.listing;
+    return json.listing.slice(0, 4);
   } catch (error) {
     console.log(error);
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Dimensions } from 'react-native';
 import MapView from 'react-native-maps';
+import MapList from '../components/MapList';
 
 const height = Dimensions.get('window').height;
 const Map = ({ data }) => {

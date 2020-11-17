@@ -17,60 +17,24 @@ const BackgroundCarousel = ({ images }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    scrollRef.current = nextSlide;
-  }, []);
+    setInterval(() => {
+      setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 3000);
+  }, [images]);
+
   useEffect(() => {
-    const play = () => {
-      scrollRef.current();
+    () => {
+      scrollRef.current.scrollTo({
+        animated: true,
+        x: DEVICE_WIDTH * activeIndex,
+        y: 0,
+      });
     };
-    const interval = setInterval(play, 3000);
-  }, []);
-
-  const nextSlide = () => {
-    if (activeIndex === images.length - 1) {
-      return setActiveIndex(0);
-    } else {
-      setActiveIndex(activeIndex + 1);
-    }
-  };
-
-  // const indexSelection = (event) => {
-  //   const viewSize = event.nativeEvent.layoutMeasurement.width;
-  //   const contentOffset = event.nativeEvent.contentOffset.x;
-
-  //   const index = Math.floor(contentOffset / viewSize);
-  //   setSelectedIndex({ index });
-  // };
-
-  // useEffect(() => {
-  //   setInterval(
-  //     () => {
-  //       setActiveIndex((prev) => ({
-  //         activeIndex:
-  //           prev.selectedIndex === images.length - 1
-  //             ? 0
-  //             : prev.selectedIndex + 1,
-  //       }));
-  //     },
-  //     () => {
-  //       scrollRef.current.scrollTo({
-  //         animated: true,
-  //         y: 0,
-  //         x: DEVICE_WIDTH * selectedIndex,
-  //       });
-  //     },
-  //     3000,
-  //   );
-  // }, []);
+  }, [activeIndex]);
 
   return (
     <View style={{ height: '100%', width: '100%' }}>
-      <ScrollView
-        horizontal
-        pagingEnabled
-        // onMomentumScrollEnd={indexSelection}
-        // ref={scrollRef}
-      >
+      <ScrollView horizontal pagingEnabled ref={scrollRef}>
         {images.map((image) => (
           <ImageBackground
             key={image}
