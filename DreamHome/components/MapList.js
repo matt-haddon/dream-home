@@ -6,7 +6,7 @@ const MapList = ({ data }) => {
   return (
     <>
       {data[0].map((town) => (
-        <MapPin town={town} />
+        <MapPin town={town} key={town.lat} />
       ))}
     </>
   );

@@ -18,11 +18,6 @@ const Map = ({ data }) => {
       }}
       showsUserLocation
     >
-      <MapView.Marker
-        coordinate={{ latitude: 51.3, longitude: 0 }}
-        title="current location"
-        description="hiya"
-      />
       <MapList data={{ ...Object.values(data) }} />
     </MapView>
   );
