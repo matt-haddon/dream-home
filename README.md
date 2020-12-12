@@ -1,6 +1,10 @@
 ![image info](https://github.com/matt-haddon/dream-home/blob/master/DreamHome/assets/mockup.png)
 
+With remote work becoming more prevalent, especially with Coronavirus, living a commutable distance from the office is no longer a necessity for many.
 
+DreamHome allows users to explore potential new properties in locations across the UK based upon budget and other preferences.
+
+Who knows where DreamHome could take you?
 
 ## Tech Stack
 
@@ -50,7 +54,7 @@ On your Android device: 📱
 
 ## Next Steps
 
-Include more UK property data - increase the sample size and provide more insightful searches
+Include more UK property data - increase the sample size and provide more insightful searches.
 
 Include non property data including crime statistics, school rankings etc by area. Users could filter for these criteria as part of their property search.
 
@@ -58,7 +62,7 @@ Deploy
 
 Add screen to provide pictures and key info on locations returned by property search.
 
-Add screen to show listings of locations returned by property search/ Link to and reference source website.
+Add screen to show listings of locations returned by property search. Link to and reference source website.
 
-Expand data to other countries
+Expand data to other countries.
 
