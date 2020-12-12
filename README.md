@@ -1,4 +1,4 @@
-![github](https://github.com/matt-haddon/dream-home/tree/master/DreamHome/assets/mockup.png))
+![image info](https://github.com/matt-haddon/dream-home/blob/master/DreamHome/assets/mockup.png)
 
 
 
