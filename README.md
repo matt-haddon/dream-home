@@ -1,5 +1,8 @@
 ![image info](https://github.com/matt-haddon/dream-home/blob/master/DreamHome/assets/mockup.png)
 
+
+
+
 With remote work becoming more prevalent, especially with Coronavirus, living a commutable distance from the office is no longer a necessity for many.
 
 DreamHome allows users to explore potential new properties in locations across the UK based upon budget and other preferences.
