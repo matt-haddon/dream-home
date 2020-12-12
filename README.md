@@ -1,4 +1,4 @@
-![alt text](https://github.com/matt-haddon/dream-home/DreamHome/assets/mockup.png)
+![github](https://github.com/matt-haddon/dream-home/tree/master/DreamHome/assets/mockup.png))
 
 
 
