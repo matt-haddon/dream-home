@@ -1,4 +1,6 @@
-# dream-home
+![alt text](https://github.com/matt-haddon/dream-home/DreamHome/assets/mockup.png)
+
+
 
 ## Tech Stack
 
