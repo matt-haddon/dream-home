@@ -61,7 +61,7 @@ Include more UK property data - increase the sample size and provide more insigh
 
 Include non property data including crime statistics, school rankings etc by area. Users could filter for these criteria as part of their property search.
 
-Deploy
+Deploy for download from Google Play
 
 Add screen to provide pictures and key info on locations returned by property search.
 
