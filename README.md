@@ -49,7 +49,7 @@ On your Android device: 📱
 
 1. Download 'Expo Client' from the App Store
 
-2. Open the camera on your phone & point at the QR code in the brower or CLI
+2. Open the camera on your phone & point at the QR code in the browser or CLI
 
 3. Select open in expo
 
