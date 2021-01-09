@@ -5,8 +5,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import BackgroundCarousel from '../components/BackgroundCarousel';
 
 const images = [
-  'https://images.unsplash.com/photo-1520386950581-900a51cbbc93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80',
   'https://images.unsplash.com/photo-1535053410863-f8986f4fedb9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=kristian-strand-2DAjiGr-IGQ-unsplash.jpg',
+  'https://images.unsplash.com/photo-1520386950581-900a51cbbc93?ixlib=rb-1.2.1&auto=format&fit=crop&w=1275&q=80',
   'https://images.unsplash.com/photo-1557838429-692ef4ee8081?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=arnaud-schildknecht-UsKT4fDsS3g-unsplash.jpghttps://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
   'https://images.unsplash.com/photo-1510265236892-329bfd7de7a1?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=bruno-martins-GkZvxVsHYWw-unsplash.jpges.unsplash.com/photo-1429087969512-1e85aab2683d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
   'https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&dl=jason-briscoe-UV81E0oXXWQ-unsplash.jpg',
