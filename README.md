@@ -1,6 +1,13 @@
-![alt text](https://github.com/matt-haddon/dream-home/DreamHome/assets/mockup.png)
+![image info](https://github.com/matt-haddon/dream-home/blob/master/DreamHome/assets/mockup.png)
 
 
+
+
+With remote work becoming more prevalent, especially with Coronavirus, living a commutable distance from the office is no longer a necessity for many.
+
+DreamHome allows users to explore potential new properties in locations across the UK based upon budget and other preferences.
+
+Who knows where DreamHome could take you?
 
 ## Tech Stack
 
@@ -42,7 +49,7 @@ On your Android device: 📱
 
 1. Download 'Expo Client' from the App Store
 
-2. Open the camera on your phone & point at the QR code in the brower or CLI
+2. Open the camera on your phone & point at the QR code in the browser or CLI
 
 3. Select open in expo
 
@@ -50,15 +57,15 @@ On your Android device: 📱
 
 ## Next Steps
 
-Include more UK property data - increase the sample size and provide more insightful searches
+Include more UK property data - increase the sample size and provide more insightful searches.
 
 Include non property data including crime statistics, school rankings etc by area. Users could filter for these criteria as part of their property search.
 
-Deploy
+Deploy for download from Google Play.
 
 Add screen to provide pictures and key info on locations returned by property search.
 
-Add screen to show listings of locations returned by property search/ Link to and reference source website.
+Add screen to show listings of locations returned by property search. Link to and reference source website.
 
-Expand data to other countries
+Expand data to other countries.
 
