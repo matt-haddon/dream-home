@@ -37,7 +37,11 @@ Who knows where DreamHome could take you?
 
 2. cd DreamHome and run npm i
 
-3. 🚀 Run expo start
+3. Request API key from [Zoopla Developer Network](https://developer.zoopla.co.uk/)
+
+4. Enter your Zoopla API key into a new .env file in the DreamHome folder. See example.env for syntax.
+
+5. 🚀 Run expo start
 
 Android simulator: 💻
 
