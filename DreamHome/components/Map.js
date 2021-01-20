@@ -5,7 +5,6 @@ import MapList from '../components/MapList';
 
 const height = Dimensions.get('window').height;
 const Map = ({ data }) => {
-  console.log('MAP', data);
   return (
     <MapView
       style={styles.map}

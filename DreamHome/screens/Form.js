@@ -6,7 +6,6 @@ import Switcher from '../components/Switcher';
 import ZooplaFetch from '../components/ZooplaFetch';
 import { Item, Input, Label, Button } from 'native-base';
 import { Ionicons } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 
 // import MapScreen from './MapScreen';
 

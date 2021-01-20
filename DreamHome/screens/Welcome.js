@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, SafeAreaView, Text } from 'react-native';
 import { Button } from 'native-base';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import BackgroundCarousel from '../components/BackgroundCarousel';
 
 const images = [
